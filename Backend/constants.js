@@ -2,5 +2,5 @@ DB_NAME = "jobPortal"
 
 
 export{
-    DB_NAME,
+    DB_NAME
 }
