@@ -1,7 +1,5 @@
 import mongoose from "mongoose";
 
-
-// Jab recruiter job post krega to ye schema ka use hoga
 const jobSchema = new mongoose.Schema({
     title: {
         type: String,
@@ -11,24 +9,22 @@ const jobSchema = new mongoose.Schema({
         type: String,
         required: true
     },
-    requirements: [ // Different Skills 
-        {
-            type: String
-        }
-    ],
+    requirements: [{
+        type: String
+    }],
     salary: {
         type: Number,
         required: true
+    },
+    experienceLevel:{
+        type:Number,
+        required:true,
     },
     location: {
         type: String,
         required: true
     },
     jobType: {
-        type: String,
-        required: true
-    },
-    experienceLevel: {
         type: String,
         required: true
     },
@@ -46,12 +42,11 @@ const jobSchema = new mongoose.Schema({
         ref: 'User',
         required: true
     },
-    // For tracking applications
     applications: [
         {
             type: mongoose.Schema.Types.ObjectId,
-            ref: 'Application'
+            ref: 'Application',
         }
     ]
-}, { timestamps: true });
+},{timestamps:true});
 export const Job = mongoose.model("Job", jobSchema);
